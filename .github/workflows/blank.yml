@@ -19,6 +19,9 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Cria local.properties
+        run: echo "sdk.dir=$ANDROID_HOME" > local.properties
+
       - name: Instala Gradle via apt
         run: |
           sudo apt-get update -q
