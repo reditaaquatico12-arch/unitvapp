@@ -30,15 +30,15 @@ jobs:
 
       - name: Cria local.properties
         run: echo "sdk.dir=$ANDROID_HOME" > local.properties
-        working-directory: unitvclone
+        working-directory: unitvclone/unitvclone
 
       - name: Build APK
         run: $GRADLE_BIN assembleDebug --no-daemon --stacktrace
-        working-directory: unitvclone
+        working-directory: unitvclone/unitvclone
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: UniTV-debug
-          path: unitvclone/app/build/outputs/apk/debug/app-debug.apk
+          path: unitvclone/unitvclone/app/build/outputs/apk/debug/app-debug.apk
           retention-days: 30
